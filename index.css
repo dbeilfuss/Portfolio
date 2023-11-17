@@ -31,7 +31,7 @@
 }
 
 * {
-  box-sizing: border-box; /* ensure madding and border widths are including in 'total width'
+  box-sizing: border-box; /* ensure madding and border widths are including in 'total width' */
 }
 
 /* General Styles */
