@@ -1,0 +1,223 @@
+/* Style Guide Definitions */
+:root {
+  /* Color Scheme */
+  --primary-color: #007bff;
+  --primary-dark: #0056b3;
+  --secondary-color: #6c757d;
+  --secondary-dark: #545b62;
+  --background-color: #ffffff;
+  --text-color: #333;
+  --text-light: #666;
+  --header-bg-color: #fff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --hover-shadow-color: rgba(0, 0, 0, 0.2);
+
+  /* Typography */
+  --font-family: "Open Sans", sans-serif;
+  --header-font-weight: 600;
+  --text-font-weight: 400;
+  --font-size-regular: 1em; /* 16px */
+  --font-size-large: 1.25em; /* 20px */
+
+  /* Spacing */
+  --container-padding: 20px;
+  --container-max-width: 1200px;
+
+  /* Borders */
+  --border-radius: 3px;
+
+  /* Transitions */
+  --transition-speed: 0.3s;
+}
+
+/* General Styles */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-color);
+  font-weight: var(--header-font-weight);
+}
+
+p,
+li {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+/* Layout */
+.container {
+  width: 90%;
+  max-width: var(--container-max-width);
+  margin: auto;
+  padding: var(--container-padding);
+}
+
+/* Header */
+header {
+  background: var(--header-bg-color);
+  box-shadow: 0 2px 4px var(--shadow-color);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  display: flex; /* Add flex display */
+  justify-content: space-between; /* Space between the title and nav links */
+  align-items: center; /* Center items vertically */
+  padding: 0 var(--container-padding); /* Add horizontal padding */
+}
+
+header h1 {
+  margin: 0; /* Remove margin to reduce height */
+  font-size: var(--font-size-large); /* Adjust font size as needed */
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: var(--text-font-weight);
+}
+
+/* Buttons */
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+}
+
+.button-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.button-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.button-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.button-secondary:hover {
+  background-color: var(--secondary-dark);
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem; /* This sets the space between the items */
+  justify-content: center; /* This will center the items in the container */
+  margin-top: 60px;
+}
+
+/* Portfolio Items */
+.portfolio-item {
+  flex: 1; /* This allows items to grow */
+  max-width: calc(
+    33.333% - 2rem
+  ); /* This sets the max width for widescreen, accounting for the gap */
+  margin: 1rem; /* This adds some space around the items */
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: box-shadow var(--transition-speed);
+}
+
+.portfolio-item:hover {
+  box-shadow: 0 8px 12px var(--hover-shadow-color);
+}
+
+.portfolio-title {
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.portfolio-description {
+  color: var(--text-light);
+  text-align: center;
+}
+
+.portfolio-image {
+  width: 50%;
+  display: block;
+  margin: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1224px) {
+  .portfolio-item {
+    flex: 1; /* Allows items to grow and shrink */
+    flex-basis: calc(40% - 2rem); /* Starting width before growing or shrinking */
+    max-width: calc(40% - 2rem); /* Maximum width */
+    min-width: 250px; /* Minimum width */
+  }
+}
+
+@media (max-width: 900px) {
+  .portfolio-item {
+    flex-basis: 60%; /* Starting width */
+    max-width: 60%; /* Maximum width */
+    min-width: 250px; /* Minimum width remains the same */
+  }
+  .portfolio-grid {
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-item {
+    flex-basis: 100%; /* Starting width */
+    max-width: 100%; /* Maximum width */
+    min-width: 250px; /* Minimum width remains the same */
+  }
+  .portfolio-grid {
+    margin-top: 100px;
+  }
+}
+
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 5px 0;
+  }
+}
+
+/* Accessibility */
+:focus {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
