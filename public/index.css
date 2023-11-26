@@ -113,10 +113,25 @@ nav ul li a {
 }
 
 /* Buttons */
+.button-section {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+}
+
 .button {
+  background-color: var(--secondary-color);
+  color: white;
   padding: 10px 20px;
   border: none;
   border-radius: var(--border-radius);
+  text-align: center;
+  text-decoration: none;
+  font-size: var(--font-size-regular);
   cursor: pointer;
   transition: background-color var(--transition-speed);
 }
