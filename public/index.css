@@ -114,19 +114,21 @@ nav ul li a {
 
 /* Buttons */
 .button-section {
-  margin: 20px;
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
   align-content: stretch;
+  margin-bottom: 20px;
 }
 
 .button {
+  max-width: 50%;
   background-color: var(--secondary-color);
   color: white;
   padding: 10px 20px;
+  margin: 5px;
   border: none;
   border-radius: var(--border-radius);
   text-align: center;
@@ -182,6 +184,10 @@ nav ul li a {
 .portfolio-title {
   color: var(--primary-color);
   text-align: center;
+}
+
+.pet-shelter {
+  color: #024359;
 }
 
 .portfolio-description {
