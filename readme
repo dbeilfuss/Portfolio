@@ -1,0 +1,55 @@
+# Portfolio and Pet Shelter Application Setup
+
+This README documents the setup and configuration for hosting both the Portfolio and Pet Shelter applications on a single AWS EC2 instance using Nginx as a reverse proxy.
+
+## Server Setup
+
+### 1. AWS EC2 Instance
+- An EC2 instance is used to host both applications.
+- Ensure the security group allows inbound traffic on the required ports (80 for HTTP, and optionally 443 for HTTPS).
+
+### 2. Node.js Applications
+- Both applications are Node.js based and are managed using PM2.
+- Each application runs on its own port (`Portfolio` on 3000, `Pet Shelter` on 8000).
+
+### 3. PM2 Process Manager
+- PM2 is used to keep the applications running and restart them in case of failure.
+- Commands:
+  - Start an application: `pm2 start app.js --name "ApplicationName"`
+  - Restart an application: `pm2 restart "ApplicationName"`
+  - Stop an application: `pm2 stop "ApplicationName"`
+  - Delete an application: `pm2 delete "ApplicationName"`
+  - List all applications: `pm2 list`
+
+### 4. Nginx as a Reverse Proxy
+- Nginx routes incoming HTTP requests to the appropriate application based on the URL.
+- Configuration is stored in `/etc/nginx/sites-available/default`.
+- sudo nano /etc/nginx/sites-available/default
+
+#### Nginx Configuration Highlights
+- Portfolio application is accessible directly via the root URL (`/`).
+- Pet Shelter application is accessible via `/pet-shelter`.
+
+Example location block for Pet Shelter in Nginx config:
+```nginx
+location /pet-shelter/ {
+    proxy_pass http://localhost:8000/;
+    # ... other proxy settings ...
+}
+
+5. Application Setup
+The public directory in each application contains static files served by Express.js.
+Routes are defined in each application to handle API requests and serve content.
+Troubleshooting Tips
+
+Check PM2 logs for application errors: pm2 logs "ApplicationName"
+Check Nginx logs for web server errors: sudo tail /var/log/nginx/error.log
+Ensure Nginx configuration is correct and restart Nginx after changes: sudo nginx -t and sudo systemctl restart nginx
+Security and Maintenance
+
+Regularly update the server and applications for security.
+Consider setting up SSL/TLS for HTTPS using Let's Encrypt or similar.
+Monitor performance and scale resources as needed.
+Author's Note
+
+This setup is part of my developer portfolio, showcasing my ability to configure and manage web applications on a cloud platform.
