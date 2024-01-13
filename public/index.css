@@ -25,7 +25,7 @@
   --container-max-width: 1200px;
 
   /* Borders */
-  --border-radius: 3px;
+  --border-radius: 5px;
 
   /* Transitions */
   --transition-speed: 0.3s;
@@ -175,6 +175,7 @@ nav ul li a {
   transition: box-shadow var(--transition-speed);
   background-color: var(--article-background-color);
   padding-top: 20px;
+  border-radius: var(--border-radius);
 }
 
 .portfolio-item:hover {
