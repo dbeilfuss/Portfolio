@@ -199,6 +199,7 @@ nav ul li a {
   width: 50%;
   display: block;
   margin: auto;
+  border-radius: 2em;
 }
 
 /* Responsive Design */
