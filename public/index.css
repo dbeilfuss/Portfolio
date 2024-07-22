@@ -112,6 +112,12 @@ nav ul li a {
   font-weight: var(--text-font-weight);
 }
 
+.header-logo {
+  max-width: 50px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
 /* Buttons */
 .button-section {
   display: flex;
